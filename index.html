@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Калькулятор возраста</title>
+</head>
+<body>
+  <h1>Калькулятор возраста</h1>
+  <form id="ageCalculatorForm">
+    <label for="dob">Дата рождения:</label>
+    <input type="date" id="dob" name="dob">
+    <button type="button" onclick="calculateAge()">Вычислить возраст</button>
+  </form>
+  <div id="result"></div>
+
+  <script>
+    function calculateAge() {
+      var dob = document.getElementById('dob').value;
+      google.script.run.withSuccessHandler(displayAge).calculateAge(dob);
+    }
+
+    function displayAge(age) {
+      document.getElementById('result').innerText = 'Ваш возраст: ' + age;
+    }
+  </script>
+</body>
+</html>
